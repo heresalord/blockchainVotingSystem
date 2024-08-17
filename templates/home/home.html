@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/homeStyle.css') }}">
+    <title>Home</title>
+</head>
+<body>
+  <div class="main-container">
+      <div class="blur-circle1"></div>
+      <div class="blur-circle2"></div>
+
+      <!-- Start Landing Page -->
+      <div class="heading-page">
+        <header>
+          <div class="container">
+            <a href="{{ url_for('home') }}" class="logo">Vote <b id="brand">BLOCK</b></a>
+            <ul class="links">
+              <li><a href="{{ url_for('home') }}" {% if active_page == "home" %}class="active"{% endif %}>Home</a></li>
+              <li><a href="{{ url_for('vote') }}" {% if active_page == "vote" %}class="active"{% endif %}>Vote</a></li>
+              <li><a href="{{ url_for('search') }}" {% if active_page == "search" %}class="active"{% endif %}>Search</a></li>
+              <li><a href="{{ url_for('display_blockchain') }}" {% if active_page == "blockchain" %}class="active"{% endif %}>Blockchain</a></li>
+              <li><a href="{% if session.authenticated %}{{ url_for('logout') }}{% else %}{{ url_for('login') }}{% endif %}">{% if session.authenticated %}Logout{% else %}Login{% endif %}</a></li>
+            </ul>
+          </div>
+        </header>
+        
+        <div class="content">
+          <div class="container">
+            <div class="info">
+              <h1>A secure electronic voting platform based on blockchain technology.</h1><br><br>
+              <p>Choose a revolutionary system that ensures the integrity, transparency, and security of every vote cast.</p>
+              <button><a href="{% if session.authenticated %}{{ url_for('logout') }}{% else %}{{ url_for('login') }}{% endif %}" style="color: azure;"><b>{% if session.authenticated %}Logout{% else %}Login{% endif %}</b></a></button>
+            </div>
+            <div class="image">
+              <img class="main-image" src="{{ url_for('static', filename='images/homeimg1.png') }}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Landing Page -->
+  </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/vote_successStyle.css') }}">
+    <title>Vote Success</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="blur-circle1">
+        </div>
+        <div class="blur-circle2">
+        </div>
+        <!-- Header starts -->
+        <div class="heading-page">
+            <header>
+                <div class="container">
+                    <a href="{{ url_for('home') }}" class="logo">Vote <b id="brand">BLOCK</b></a>
+                    <ul class="links">
+                        <li><a href="{{ url_for('home') }}" style="margin-left: 0px;">Home</a></li>
+                        <li><a href="{{ url_for('vote') }}">Vote</a></li>
+                        <li><a href="{{ url_for('search') }}">Search</a></li>
+                        <li><a href="{{ url_for('display_blockchain') }}">Blockchain</a></li>
+                        <li><a href="{% if session.authenticated %}{{ url_for('logout') }}{% else %}{{ url_for('login') }}{% endif %}">{% if session.authenticated %}Logout{% else %}Login{% endif %}</a></li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+        <!-- Header ends -->
+        <div class="main">
+            <div class="sub">
+                <div class="icon">
+                    <svg xmlns="{{ url_for('static', filename='images/homeimg1.png') }}" x="0px" y="0px" width="100" height="100" viewBox="0 0 64 64">
+                        <linearGradient id="bD4D4ZSYWE88s3gBQvnwNa_15LbHXN3fUPE_gr1" x1="31.5" x2="31.5" y1="11" y2="52" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#6dc7ff"></stop>
+                            <stop offset=".699" stop-color="#e6abff"></stop>
+                        </linearGradient>
+                        <path fill="url(#bD4D4ZSYWE88s3gBQvnwNa_15LbHXN3fUPE_gr1)" d="M31.5,11C20.2,11,11,20.2,11,31.5S20.2,52,31.5,52S52,42.8,52,31.5S42.8,11,31.5,11z M31.5,46.34c-8.18,0-14.84-6.66-14.84-14.84s6.66-14.84,14.84-14.84s14.84,6.66,14.84,14.84S39.68,46.34,31.5,46.34z"></path>
+                        <linearGradient id="bD4D4ZSYWE88s3gBQvnwNb_15LbHXN3fUPE_gr2" x1="58" x2="58" y1=".586" y2="12.466" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#6dc7ff"></stop>
+                            <stop offset=".699" stop-color="#e6abff"></stop>
+                        </linearGradient>
+                        <rect width="2" height="2" x="57" y="6" fill="url(#bD4D4ZSYWE88s3gBQvnwNb_15LbHXN3fUPE_gr2)"></rect>
+                        <linearGradient id="bD4D4ZSYWE88s3gBQvnwNc_15LbHXN3fUPE_gr3" x1="58" x2="58" y1=".586" y2="4.637" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#6dc7ff"></stop>
+                            <stop offset=".699" stop-color="#e6abff"></stop>
+                        </linearGradient>
+                        <rect width="2" height="2" x="57" y="2" fill="url(#bD4D4ZSYWE88s3gBQvnwNc_15LbHXN3fUPE_gr3)"></rect>
+                        <linearGradient id="bD4D4ZSYWE88s3gBQvnwNd_15LbHXN3fUPE_gr4" x1="52" x2="52" y1="6.216" y2="10.821" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#6dc7ff"></stop>
+                            <stop offset=".699" stop-color="#e6abff"></stop>
+                        </linearGradient>
+                        <rect width="2" height="2" x="51" y="8" fill="url(#bD4D4ZSYWE88s3gBQvnwNd_15LbHXN3fUPE_gr4)"></rect>
+                        <g>
+                            <linearGradient id="bD4D4ZSYWE88s3gBQvnwNe_15LbHXN3fUPE_gr5" x1="56" x2="56" y1="6.613" y2="47.712" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#1a6dff"></stop>
+                                <stop offset="1" stop-color="#c822ff"></stop>
+                            </linearGradient>
+                            <rect width="2" height="2" x="55" y="4" fill="url(#bD4D4ZSYWE88s3gBQvnwNe_15LbHXN3fUPE_gr5)"></rect>
+                            <linearGradient id="bD4D4ZSYWE88s3gBQvnwNf_15LbHXN3fUPE_gr6" x1="38.5" x2="38.5" y1="6.613" y2="47.712" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#1a6dff"></stop>
+                                <stop offset="1" stop-color="#c822ff"></stop>
+                            </linearGradient>
+                            <path fill="url(#bD4D4ZSYWE88s3gBQvnwNf_15LbHXN3fUPE_gr6)" d="M49,10h-2v2h2v2h-2v-2h-2v2h-2v2h2v2h-2v-2h-2v2v1h-2v1v1h-1v1h-1c0,0-4,6-5,10c-1.697-3.394-6.274-6.788-7.622-7.739C24.133,24.088,23.845,24,23.545,24h-0.088C22.652,24,22,24.652,22,25.457c0,0.348,0.121,0.681,0.349,0.946C23.775,28.062,27,32,29,37c0.743,1.857,1.939,3,3,3c4,0,2-3,7-10c0-0.536,0-1.352,0-2h2v-2h2v-2h2v-2h-2v-2h2v2h2v-2v-2h2v-2h2v-2h2v-2h2v-2h2v-2h-2h-2V8h-2V10z"></path>
+                            <linearGradient id="bD4D4ZSYWE88s3gBQvnwNg_15LbHXN3fUPE_gr7" x1="53" x2="53" y1="6.613" y2="47.712" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#1a6dff"></stop>
+                                <stop offset="1" stop-color="#c822ff"></stop>
+                            </linearGradient>
+                            <rect width="4" height="2" x="51" y="6" fill="url(#bD4D4ZSYWE88s3gBQvnwNg_15LbHXN3fUPE_gr7)"></rect>
+                        </g>
+                    </svg>
+                    <p>Your vote has been successfully recorded! <br> Copy your hash to verify the status of your vote at any time.</p>
+                </div>
+                <div class="text">
+                    <p>Your hash is: <span id="hash">{{ hash_value }}</span></p>
+                    <p id="countdown">Time remaining before the vote closes <br> 
+                        <div class="timer" id="timer">
+                        <!-- Timer value will be updated here -->
+                        </div>
+                    </p>
+                </div>
+                <div class="btn">
+                    <button class="slide" onclick="copyToClipboard('{{ hash_value }}')">Copy</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Function to fetch updated timer value from the server
+        function updateTimer() {
+            fetch('/get_timer')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('timer').innerText =
+                        data.days + " D, " + 
+                        data.hours + " H, " + 
+                        data.minutes + " M, " + 
+                        data.seconds + " S";
+                })
+                .catch(error => {
+                    console.error('Error fetching timer:', error);
+                });
+        }
+
+        // Update timer every second
+        setInterval(updateTimer, 1000);
+
+        // Call updateTimer function immediately to display timer on page load
+        updateTimer();
+
+        // Function to copy to clipboard
+        function copyToClipboard(text) {
+            var input = document.createElement('input');
+            input.setAttribute('value', text);
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            alert("Copied the hash to clipboard: " + text);
+        }
+
+        // Set the end time for the countdown
+        var endTime = new Date('{{ end_time }}').getTime();
+
+        // Update the timer every second
+        var timerInterval = setInterval(function() {
+            updateTimer(endTime);
+        }, 1000);
+    </script>
+</body>
+</html>

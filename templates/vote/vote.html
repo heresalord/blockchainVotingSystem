@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/voteStyle.css') }}">
+  <title>Vote Page</title>
+</head>
+<body>
+    <!--Header starts -->
+    <div class="heading-page">
+      <header>
+        <div class="container">
+          <a href="{{ url_for('home') }}" class="logo">Vote <b id="brand">BLOCK</b></a>
+          <ul class="links">
+            <li><a href="{{ url_for('home') }}" {% if active_page == "home" %}class="active"{% endif %}>Home</a></li>
+            <li><a href="{{ url_for('vote') }}" {% if active_page == "vote" %}class="active"{% endif %}>Vote</a></li>
+            <li><a href="{{ url_for('search') }}" {% if active_page == "search" %}class="active"{% endif %}>Search</a></li>
+            <li><a href="{{ url_for('display_blockchain') }}" {% if active_page == "blockchain" %}class="active"{% endif %}>Blockchain</a></li>
+            <li><a href="{% if session.authenticated %}{{ url_for('logout') }}{% else %}{{ url_for('login') }}{% endif %}">{% if session.authenticated %}Logout{% else %}Login{% endif %}</a></li>
+        </ul>
+        </div>
+      </header>
+    </div>
+    <!--Header ends -->
+  {% if message %}
+  <p class="warning">{{ message }}</p><br><br>
+  {% endif %}
+  <!-- Background effect starts -->
+  <div class="main-container">
+    <div class="blur-circle1"></div>
+    <div class="blur-circle2"></div>
+  <!-- Background effect ends -->
+  <!-- Presentation and form start -->
+  <div class="main">
+    <div class="presentation">
+      <h1>VOTE</h1>
+      <p>Once your vote is confirmed, it will be permanently and immutably recorded on the blockchain.<br> This technology ensures complete security and transparency, but it also means that any later modification is impossible.<br> Make sure you understand the implications of your vote before confirming it.<br>
+         <br><br>
+         After confirming your vote, copy the hash of your vote to check its status later.
+      </p>
+    </div>
+    <div class="dataEntry">
+      <form action="{{ url_for('vote') }}" method="POST">
+        <!-- Remove Full Name and NPI input fields -->
+        <!-- Only display candidate choices -->
+        
+        <!-- Candidate choice part -->
+        <div class="submain">
+            <label for="Paul" class="can1" style="height: 100%;" >
+                <input type="radio" id="Paul" name="choice" value="Paul" required>
+                <div style="height: 100%;" >
+                    <h1>Paul</h1>
+                </div>
+            </label>
+            <label for="Pierre"class="can2" style="height: 100%;" >
+                <input type="radio" id="Pierre" name="choice" value="Pierre" required>
+                <div style="height: 100%;">
+                    <h1>Pierre</h1>
+                </div>
+            </label> 
+        </div>
+        <!-- Overlay part starts-->
+        <div class="overlay1">YOUR VOICE. YOUR VOTE. YOUR RIGHT</div>
+        <button type="submit" class="overlay2">CONFIRM</button>
+        <!-- Overlay part ends-->
+    </form>    
+    </div>
+  </div>
+  <!-- Presentation and form end -->
+  </div>
+</body>
+</html>

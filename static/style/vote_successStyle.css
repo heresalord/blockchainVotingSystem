@@ -1,0 +1,225 @@
+html,body{ 
+    height:100%;
+    margin: 0;
+  }
+  
+  body{
+    background-color: black;
+    margin: 0;
+  }
+  
+  /* header style starts */
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Small */
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  /* Medium */
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  /* Large */
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
+  /* End Global Rules */
+  
+  .heading-page header {
+    min-height: 80px;
+    display: flex;
+  }
+  @media (max-width: 767px) {
+    .heading-page header {
+      min-height: auto;
+      display: initial;
+    }
+  }
+  .heading-page header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @media (max-width: 767px) {
+    .heading-page header .container {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  .heading-page header .logo {
+    color: #5d5d5d;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+  
+  b#brand {
+    color: #7d6dff;
+  }
+  
+  @media (max-width: 767px) {
+    .heading-page header .logo {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  .heading-page header .links {
+    display: flex;
+    align-items: center;
+  }
+  @media (max-width: 767px) {
+    .heading-page header .links a{
+      text-align: center;
+      gap: 10px;
+    }
+  }
+  .heading-page header .links li a {
+    margin: 10px;
+    color: #5d5d5d;
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  /* Responsive Last Child Link Styling */
+  .heading-page header .links li:last-child a {
+    border-radius: 20px;
+    padding: 8px 10px;
+    margin-left: 13px;
+    margin-right: 0px;
+    font-size: 13px;
+    color: #FFF;
+    background-color: #6c63ff;
+  }
+  
+  .heading-page header .links li:not(:last-child) a:hover {
+    color: #6c63ff;
+  }
+  
+  .heading-page header .links li:not(:last-child) a:active {
+    color: #6c63ff;
+  }
+  /* header style ends */
+  
+  main { 
+    min-height:100%;
+  }
+  
+  .main-container{
+    margin:0px;
+    padding: 0px;
+    min-width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    
+}
+.blur-circle1{
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom,white,#7c6cff);
+    border-radius: 50%;
+    filter:blur(120px);
+    position: absolute;
+    z-index: -1;
+    left: 10%;
+    top:10%;
+    /* transform: translate(50%); */
+}
+.blur-circle2{
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom,white,pink);
+    border-radius: 50%;
+    filter:blur(100px);
+    position: absolute;
+    right: 10%;
+    top:70%;
+    /* transform: translate(50%); */
+}
+  
+  .sub {
+    width: 75%;
+    max-width: 600px; /* Added max-width for responsiveness */
+    height: auto;
+    margin: 10% auto;
+    border-radius: 25px;
+    background-color: rgb(237, 237, 237);
+    box-shadow: 12px 15px 20px 0 rgba(46,61,73,.3);
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .icon {
+    text-align: center;
+  }
+  
+  .icon p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    font-weight: 600;
+  }
+  
+  .text p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 10px;
+    overflow-wrap: break-word;
+  }
+
+  div#timer {
+    text-align: center;
+}
+  
+  .btn {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .slide {
+    background: linear-gradient(186deg, rgb(44, 90, 170) 55%, rgb(102, 17, 142) 100%);
+    height: 40px;
+    width: 100px;
+    border-width: 0px;
+    border-radius: 5px;
+    color: whitesmoke;
+    cursor: pointer;
+  }
+  
+  .slide:hover {
+    background: rgb(35, 0, 67);
+  }
+  
+  .slide a {
+    font-size: larger;
+    font-weight: 300;
+    color: aliceblue;
+    text-decoration: none;
+  }
+  

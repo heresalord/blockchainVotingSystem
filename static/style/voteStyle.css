@@ -1,0 +1,336 @@
+/* Global Reset */
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background-color: black;
+  }
+  
+  /* Header Styling */
+  .heading-page {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Responsive Container Sizes */
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
+  
+  /* Header Styling */
+  .heading-page header {
+    min-height: 80px;
+    display: flex;
+  }
+  
+  @media (max-width: 767px) {
+    .heading-page header {
+      min-height: auto;
+      display: initial;
+    }
+  }
+  
+  .heading-page header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 767px) {
+    .heading-page header .container {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  
+  .heading-page header .logo {
+    color: #5d5d5d;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+  
+  b#brand {
+    color: #7d6dff;
+  }
+  
+  @media (max-width: 767px) {
+    .heading-page header .logo {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .heading-page header .links {
+    display: flex;
+    align-items: center;
+  }
+  
+  @media (max-width: 767px) {
+    .heading-page header .links a {
+      text-align: center;
+      gap: 10px;
+    }
+  }
+  
+@media (max-width: 1032px) {
+  .presentation p{
+    font-size: 10px;
+  }
+}
+
+.heading-page header .links li a {
+  margin: 10px;
+  color: #5d5d5d;
+  cursor: pointer;
+  transition: .3s;
+}
+
+/* Responsive Last Child Link Styling */
+.heading-page header .links li:last-child a {
+  border-radius: 20px;
+  padding: 8px 10px;
+  margin-left: 13px;
+  margin-right: 0px;
+  font-size: 13px;
+  color: #FFF;
+  background-color: #6c63ff;
+}
+  
+  .heading-page header .links li:not(:last-child) a:hover {
+    color: #6c63ff;
+  }
+  
+  .heading-page header .links li:not(:last-child) a.active {
+    color: #6c63ff;
+  }
+  
+  /* Main Container Styling */
+  .main-container {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+  }
+
+  @media (max-width: 767px){
+    .main{
+      height: 95vh;
+    }
+
+    form{
+      height: 100%;
+    }
+  }
+  
+  /* Background Blur Circles */
+  .blur-circle1 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom, white, #7c6cff);
+    border-radius: 50%;
+    filter: blur(120px);
+    position: absolute;
+    z-index: -1;
+    left: 5%;
+    top: 20%;
+  }
+  
+  .blur-circle2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom, white, pink);
+    border-radius: 50%;
+    filter: blur(100px);
+    position: absolute;
+    visibility: hidden;
+    right: 10%;
+    top: 20%;
+  }
+  
+  /* Presentation Styling */
+  .presentation h1 {
+    font-weight: 900;
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #6a59e9;
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 0%;
+  }
+  
+  .presentation p {
+    font-weight: 300;
+    font-size: 16px;
+    color: white;
+    position: relative;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  /* text on mobile */
+  @media (max-width: 767px) {
+    .presentation p {
+      font-weight: 300;
+      font-size: 14px;
+      color: white;
+      position: relative;
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      padding: 6px;
+      margin: 4px;
+    }
+
+  }
+
+  
+  /* Data Entry Styling */
+  .dataEntry {
+    text-align: center;
+    margin-top: 3%;   
+    height: 100%;
+  }
+  
+  .dataEntry label {
+    color: white;
+  }
+  
+  .confirm {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .dataEntry input {
+    width: 200px;
+    height: 30px;
+    border: 0;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  /* Overlay Styling */
+  .overlay1,
+  .overlay2 {
+    font-weight: 600;
+    font-size: smaller;
+    position: absolute;
+    width: fit-content;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 16px 40px;
+    z-index: 5;
+    margin-top: -120px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  }
+  
+  .overlay2 {
+    margin-top: -60px;
+  }
+  
+  /* Candidate Choice Styling */
+  .submain {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: max-content;
+    margin-top: 5%;
+    left: 5%;
+    right: auto;
+  }
+  
+  .can1{
+    width: 45%;
+    border-radius: 20px;
+    background-color: rgba(255, 0, 0, 0.25);
+  }
+
+  .can2 {
+    width: 45%;
+    border-radius: 20px;
+    background-color: rgba(0, 55, 255, 0.25);
+  }
+  
+  .can1 h1,
+  .can2 h1 {
+    font-weight: 900;
+    color: white;
+    position: relative;
+    text-align: center;
+    margin-top: 0;
+    font-size: 14vw;
+  }
+  
+  .can1 > input,
+  .can2 > input {
+    visibility: hidden;
+    position: absolute;
+  }
+  
+  .can1 > input + div,
+  .can2 > input + div {
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  
+  .can1 > input:checked + div,
+  .can2 > input:checked + div {
+    background-color: #0f9400;
+    border: 1px solid #8400ff;
+    border-radius: 25px;
+  } 
+
+@media (max-width: 767px) {
+  .submain{
+    height: 50%;
+    margin-top: 15%;
+  }
+  .overlay1{
+    margin-top: -160px;
+  }
+  .overlay2{
+    margin-top: -90px;
+  }
+} 
+  
+  /* Warning Styling */
+  .warning {
+    color: whitesmoke;
+    font-size: 14px;
+    position: absolute;
+    text-align: center;
+    background-color: #ff0000bd;
+    padding: 10px;
+    width: 100%;
+  }
+  

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/loginStyle.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <!--Header starts -->
+    <div class="heading-page">
+        <header>
+            <div class="container">
+                <a href="{{ url_for('home') }}" class="logo">Vote <b id="brand">BLOCK</b></a>
+                <ul class="links">
+                    <li><a href="{{ url_for('home') }}" {% if active_page == "home" %}class="active"{% endif %}>Home</a></li>
+                    <li><a href="{{ url_for('vote') }}" {% if active_page == "vote" %}class="active"{% endif %}>Vote</a></li>
+                    <li><a href="{{ url_for('search') }}" {% if active_page == "search" %}class="active"{% endif %}>Search</a></li>
+                    <li><a href="{{ url_for('display_blockchain') }}" {% if active_page == "blockchain" %}class="active"{% endif %}>Blockchain</a></li>
+                    <li><a href="{% if session.authenticated %}{{ url_for('logout') }}{% else %}{{ url_for('login') }}{% endif %}">{% if session.authenticated %}Logout{% else %}Login{% endif %}</a></li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <!--Header ends -->
+    <div class="main-container">
+        <div class="blur-circle1"></div>
+        <div class="blur-circle2"></div>
+        <!-- Start Login Page -->
+        <br>{% if message %}
+            <p class="warning">{{ message }}</p>
+        {% endif %}  
+        <div class="spacer"></div>
+        <div class="main">
+            <p class="sign" style="text-align: center;">Login</p>
+            <br>
+            <form action="/login" method="POST" class="form1">
+                <label for="npi"></label>
+                <input class="un" id="npi" name="npi" required placeholder="XXXXXXXX">
+                <label for="password"></label>
+                <input class="pass" type="password" id="password" name="password" required placeholder="Password">
+                <button class="submit">Login</button>     
+            </form>
+        </div>
+    </div>
+</body>
+</html>

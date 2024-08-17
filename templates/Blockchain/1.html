@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/blockchainStyle.css') }}">
+  <title>Blockchain</title>
+</head>
+<body>
+  <div class="main-container">
+    <div class="blur-circle1"></div>
+    <div class="blur-circle2"></div>
+    <!-- Header starts -->
+    <div class="landing-page">
+      <header>
+        <div class="container">
+          <a href="{{ url_for('home') }}" class="logo">Vote <b id="brand">BLOCK</b></a>
+          <ul class="links">
+            <li><a href="{{ url_for('home') }}">Acceuil</a></li>
+            <li><a href="{{ url_for('search') }}">Recherche</a></li>
+            <li><a href="{{ url_for('display_blockchain') }}">Blockchain</a></li>
+            <li><a href="">FAQ</a></li>
+            <li><a href="{{ url_for('vote') }}">Voter</a></li>
+          </ul>
+        </div>
+      </header>
+    </div>
+    <!-- Header ends -->
+    <div id="container">
+      <div class="centred">
+        <div class="box">
+          <div class="Btable">
+            <h1>Blockchain</h1>
+            <div class="table-responsive">
+              <table>
+                <tr>
+                  <th>Index</th>
+                  <td>{{ block.index }}</td>
+                </tr>
+                <tr>
+                  <th>Timestamp</th>
+                  <td>{{ block.timestamp }}</td>
+                </tr>
+                <tr>
+                  <th>NPI</th>
+                  <td>{{ block.npi }}</td>
+                </tr>
+                <tr>
+                  <th>Previous Hash</th>
+                  <td>{{ block.previous_hash }}</td>
+                </tr>
+                <tr>
+                  <th>Proof</th>
+                  <td>{{ block.proof }}</td>
+                </tr>
+                <tr>
+                  <th>Hash</th>
+                  <td>{{ block.hash }}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

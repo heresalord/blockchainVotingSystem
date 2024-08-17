@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/searchStyle.css') }}">
+    <title>Search</title>
+</head>
+<body>
+  
+    <div class="main-container">
+        <div class="blur-circle1">
+
+        </div>
+        <div class="blur-circle2">
+
+        </div>
+    <!--Header starts -->
+    <div class="heading-page">
+      <header>
+        <div class="container">
+          <a href="{{ url_for('home') }}" class="logo">Vote <b id="brand">BLOCK</b></a>
+          <ul class="links">
+            <li><a href="{{ url_for('home') }}" {% if active_page == "home" %}class="active"{% endif %}>Home</a></li>
+            <li><a href="{{ url_for('vote') }}" {% if active_page == "vote" %}class="active"{% endif %}>Vote</a></li>
+            <li><a href="{{ url_for('search') }}" {% if active_page == "search" %}class="active"{% endif %}>Search</a></li>
+            <li><a href="{{ url_for('display_blockchain') }}" {% if active_page == "blockchain" %}class="active"{% endif %}>Blockchain</a></li>
+            <li><a href="{% if session.authenticated %}{{ url_for('logout') }}{% else %}{{ url_for('login') }}{% endif %}">{% if session.authenticated %}Logout{% else %}Login{% endif %}</a></li>
+        </ul>
+        </div>
+      </header>
+    </div>
+    <!--Header ends -->
+          <!-- Start Search Page -->
+    <div class="s130">
+        <!-- <p><b>SEARCH</b></p>
+        <p>Enter your hash to verify the information related to your vote</p> -->
+        <form action="/search" method="GET">
+          <div class="inner-form">
+            <div class="input-field first-wrap">
+              <div class="svg-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </div>
+              <label for="hash"></label>
+              <input class="search" type="search" id="hash" name="hash" required placeholder="Insert Your Hash" />
+            </div>
+            <div class="input-field second-wrap">
+              <button class="btn-search" type="submit">SEARCH</button>
+            </div>
+          </div>
+          <span class="info">Insert the hash to check your vote.</span>
+        </form>
+        {% if block %}
+    <div class="block-info">
+        <h2 style="color: #31296f;">Block Information:</h2>
+        <p><strong>Index:</strong> {{ block.index }}</p>
+        <p><strong>Timestamp:</strong> {{ block.timestamp }}</p>
+        <p><strong>NPI:</strong> {{ block.npi }}</p>
+        <p><strong>Previous Hash:</strong> {{ block.previous_hash[:9] }}*********{{ block.previous_hash[-4:] }}</p>
+        <p><strong>Proof:</strong> {{ block.proof }}</p>
+        <p><strong>Hash:</strong> {{ block.hash }}</p>
+        <p><strong>Data:</strong> {{ block.data }}</p>
+    </div>
+    {% endif %}
+    {% if message %}
+<div class="warning">
+    <p>{{ message }}</p>
+</div>
+{% endif %}
+
+  </div>
+</body>
+</html>

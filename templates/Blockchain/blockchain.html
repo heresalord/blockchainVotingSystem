@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/blockchainStyle.css') }}">
+    <title>Blockchain Voting</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="blur-circle1"></div>
+        <div class="blur-circle2"></div>
+        
+        <!-- Header starts -->
+        <div class="heading-page">
+            <header>
+                <div class="container">
+                    <a href="{{ url_for('home') }}" class="logo">Vote <b id="brand">BLOCK</b></a>
+                    <ul class="links">
+                        <li><a href="{{ url_for('home') }}" {% if active_page == "home" %}class="active"{% endif %}>Accueil</a></li>
+                        <li><a href="{{ url_for('vote') }}" {% if active_page == "vote" %}class="active"{% endif %}>Vote</a></li>
+                        <li><a href="{{ url_for('search') }}" {% if active_page == "search" %}class="active"{% endif %}>Recherche</a></li>
+                        <li><a href="{{ url_for('display_blockchain') }}" {% if active_page == "blockchain" %}class="active"{% endif %}>Blockchain</a></li>
+                        <li><a href="{% if session.authenticated %}{{ url_for('logout') }}{% else %}{{ url_for('login') }}{% endif %}">{% if session.authenticated %}Déconnexion{% else %}Connexion{% endif %}</a></li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+        <!-- Header ends -->
+        
+        <!-- Main content starts -->
+        <div class="main-content">
+            <div class="report">
+                <div class="row">
+                    <div class="rp1">
+                        <p>Nombre Total de Votes enregistrés</p>
+                        <p class="num">{{ blockchain|length }}</p>
+                    </div>
+                    <div class="rp2">
+                        <p>Temps restant avant la clôture des élections</p>
+                        <p class="num">
+                            <div class="timer" id="timer" style="text-align: center;">
+                                <!-- Timer value will be updated here -->
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="history">
+                <div class="hisTable">
+                    <table>
+                        <tr>
+                            <th>
+                                <div class="tableTitle">
+                                    <h2 class="header-title mb-0">Vue d'ensemble</h2>
+                                    <select id="filterSelect" class="custome-select border-0 pr-3">
+                                        <option selected value="24">24 Heures</option>
+                                        <option value="7">7 Jours</option>
+                                    </select>
+                                </div>
+                            </th>
+                        </tr>
+                        {% for block in blockchain %}
+                        <tr>
+                            <td>
+                                <div><b>Index: </b>{{ block.index }}</div><br>
+                                <div><b>Timestamp: </b>{{ block.timestamp }}</div><br>
+                                <div><b>NPI: </b>{{ block.npi }}</div><br>
+                                <div><b>Previous Hash: </b>{{ block.previous_hash[:8] }}*************{{ block.previous_hash[-4:] }}</div><br>
+                                <div><b>Hash: </b>{{ block.hash[:8] }}*************{{ block.hash[-4:] }}</div><br>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Main content ends -->
+
+        <!-- JavaScript starts -->
+        <script>
+            // Function to update the timer
+            function updateTimer() {
+                fetch('/time_remaining')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('timer').innerText =
+                            data.days + " J " + 
+                            data.hours + " H " + 
+                            data.minutes + " M " + 
+                            data.seconds + " S";
+                    })
+                    .catch(error => {
+                        console.error('Error fetching timer:', error);
+                    });
+            }
+
+            // Update timer every second
+            setInterval(updateTimer, 1000);
+
+            // Call updateTimer function immediately to display timer on page load
+            updateTimer();
+
+            // Function to fetch blockchain data based on time filter and update the table
+            function updateTable() {
+                var selectedOption = document.getElementById('filterSelect').value;
+                fetch('/blocks/' + selectedOption)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update table with fetched data
+                    })
+                    .catch(error => {
+                        console.error('Error fetching blockchain data:', error);
+                    });
+            }
+
+            // Call updateTable function when the select option changes
+            document.getElementById('filterSelect').addEventListener('change', updateTable);
+
+            // Call updateTable function immediately to display table on page load
+            updateTable();
+        </script>
+        <!-- JavaScript ends -->
+    </div>
+</body>
+</html>

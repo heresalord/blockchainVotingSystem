@@ -1,0 +1,301 @@
+/* Global Reset */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Brand Styling */
+b#brand {
+    color: #7d6dff;
+}
+
+/* Spacer Styling */
+.spacer {
+    height: 20px;
+}
+
+/* Main Container Styling */
+.main-container {
+    margin: 0px;
+    padding: 0px;
+    min-width: 100vw;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Background Blur Circles */
+.blur-circle1,
+.blur-circle2 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+
+.blur-circle1 {
+    background: linear-gradient(to bottom, white, #7c6cff);
+    filter: blur(120px);
+    left: 10%;
+    top: 10%;
+    animation: circle1 15s  infinite;
+}
+
+.blur-circle2 {
+    background: linear-gradient(to bottom, white, pink);
+    filter: blur(100px);
+    right: 10%;
+    top: 70%;
+    animation: circle2 15s  infinite;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: black;
+}
+
+/* Header Styling */
+.heading-page {
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Container Sizes */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Header Styling */
+.heading-page header {
+    min-height: 80px;
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    .heading-page header {
+        min-height: auto;
+        display: initial;
+    }
+}
+
+.heading-page header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+    .heading-page header .container {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.heading-page header .logo {
+    color: #5d5d5d;
+    font-style: italic;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+b#brand {
+    color: #7d6dff;
+}
+
+@media (max-width: 767px) {
+    .heading-page header .logo {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.heading-page header .links {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .heading-page header .links a {
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+.heading-page header .links li a {
+    margin: 10px;
+    color: #5d5d5d;
+    cursor: pointer;
+    transition: .3s;
+}
+
+/* Responsive Last Child Link Styling */
+.heading-page header .links li:last-child a {
+    border-radius: 20px;
+    padding: 8px 10px;
+    margin-left: 13px;
+    margin-right: 0px;
+    font-size: 13px;
+    color: #FFF;
+    background-color: #6c63ff;
+}
+
+.heading-page header .links li:not(:last-child) a:hover {
+    color: #6c63ff;
+}
+
+.heading-page header .links li:not(:last-child) a.active {
+    color: #6c63ff;
+}
+
+/* Main Content Styling */
+.main {
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 300px;
+    margin: 7em auto;
+    border-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sign {
+    padding-top: 40px;
+    color: #8C55AA;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.un,
+.pass {
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.un:focus,
+.pass:focus {
+    border: 2px solid rgba(0, 0, 0, 0.18) !important;
+}
+
+.submit {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #40177d, #7c6cff);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 30%;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+a {
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #E1BEE7;
+    text-decoration: none
+}
+
+@media (max-width: 600px) {
+    .main {
+        border-radius: 10px;
+        width: 350px;
+        height: 300px;
+        z-index: 10;
+        position: relative;
+    }
+}
+
+/* background on Mobile */
+@media (max-width: 767px) {
+    .blur-circle1 {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.826), #7d6cffd0);
+        animation: circle1 15s  infinite;
+    }
+    
+    .blur-circle2 {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.824), rgba(255, 192, 203, 0.83));
+        filter: blur(100px);
+        right: 10%;
+        top: 70%;
+        animation: circle 15s  infinite;
+    }
+}
+    
+.warning {
+    color: whitesmoke;
+    font-size: 14px;
+    position: absolute;
+    text-align: center;
+    background-color: #ff0000bd;
+    padding: 10px;
+    width: 100%;
+}
+
+/* animations */
+
+@keyframes circle1{
+    from {
+        background: linear-gradient(to bottom, white, #7c6cff);
+    }
+    to {
+        background: linear-gradient(to bottom, white, pink);
+    }
+}
+
+@keyframes circle2{
+    from { 
+        background: linear-gradient(to bottom, white, #7c6cff);
+    }
+    to {
+        background: linear-gradient(to bottom, white, #7c6cff);
+    }
+}
