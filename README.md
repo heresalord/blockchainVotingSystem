@@ -4,9 +4,14 @@
  
 # 🖥️ Project 
 Framework : Flask
+
 Frontend : HTML, CSS, Javascript
+
 Backend : Python, SQL
+
 Role Based Authorization
-Separate Dashboards for Voter/Admin
+Separate Dashboards for V
+oter/Admin
 Unique Password 🔑 Generation for addresses
+
 Decentralised file storage using Infura
